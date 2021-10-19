@@ -86,11 +86,25 @@ public class Main {
 			System.out.println(e.getMessage());
 		}
 		System.out.printf("\n%d shapes were created:\n", count);
+		int newCount = count;
 		for(Shape shape: shapes) {
 			
 			if (count > 0) {
 				System.out.println(shape);
 				count--;
+			}
+		}
+		DeletePerimeters dp = new DeletePerimeters();
+		
+		Shape[] newShapes = dp.deleteParams(shapes, newCount);
+		
+		System.out.printf("------->Task 2 ...<------- SIZE: %d\n", newShapes.length);
+
+		for(Shape shape : newShapes) {
+			
+			if (newCount > 0) {
+				System.out.println(shape);
+				newCount--;
 			}
 		}
 	}
